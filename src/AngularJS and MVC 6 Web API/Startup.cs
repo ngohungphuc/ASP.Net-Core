@@ -28,7 +28,6 @@ namespace AngularJS_and_MVC_6_Web_API
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseMvc();
             app.UseMvcWithDefaultRoute();
             //app.Run(async (context) =>
