@@ -3,12 +3,9 @@
   "private": true,
   "dependencies": {
     "angular": "1.4.5",
-    "angular-resource": "1.4",
+    "angular-resource": "1.4.5",
     "angular-route": "1.4.5",
     "jquery": "2.1.4",
     "bootstrap": "3.3.5"
-  },
-  "resolutions": {
-    "angular": "1.4.12"
   }
 }

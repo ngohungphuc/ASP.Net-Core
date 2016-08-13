@@ -2,10 +2,11 @@
     'use strict';
 
     angular
-        .module('app')
+        .module('myApp')
         .controller('quotesController', quotesController);
 
-    quotesController.$inject = ['$scope', Quotes];
+    //inject quotes service
+    quotesController.$inject = ['$scope', 'Quotes'];
 
     function quotesController($scope, Quotes) {
         //calling Quotes Service

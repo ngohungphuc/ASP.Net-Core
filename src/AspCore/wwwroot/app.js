@@ -1,1 +1,1 @@
-!function(){"use strict";angular.module("app",["quotesService"])}();
+!function(){"use strict";angular.module("myApp",["quotesService"])}(),function(){"use strict";function a(a,b){a.quotes=b.query()}angular.module("myApp").controller("quotesController",a),a.$inject=["$scope","Quotes"]}(),function(){"use strict";var a=angular.module("quotesService",["ngResource"]);a.factory("Quotes",["$resource",function(a){return a("/api/quotes/",{},{query:{method:"GET",params:{},isArray:!0}})}])}();
