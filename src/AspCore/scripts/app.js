@@ -13,16 +13,16 @@
 
     angular.module('myApp').config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
         $routeProvider.when('/', {
-            templateUrl: 'partial/quotes.html',
+            templateUrl: 'partials/index.html',
             controller: 'quotesController'
         }).when('/quotes/add', {
-            templateUrl: 'partial/add.html',
+            templateUrl: 'partials/add.html',
             controller: 'quotesAddController'
         }).when('/quotes/edit/:id', {
-            templateUrl: 'partial/edit.html',
+            templateUrl: 'partials/edit.html',
             controller: 'quotesEditController'
         }).when('/quotes/delete/:id', {
-            templateUrl: 'partial/delete.html',
+            templateUrl: 'partials/delete.html',
             controller: 'quotesDeleteController'
         });
 

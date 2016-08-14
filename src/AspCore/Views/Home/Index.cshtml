@@ -1,6 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<p>
-    <img src="~/images/logo.png" style="width:50%;margin-left:25%" />
-</p>
+
+<br />
+<div ng-controller="quotesController" style="text-align:center">
+    <h2>List of quotes</h2>
+    <p ng-repeat="quote in quotes">
+        {{quote.id}} - {{quote.content}} - {{quote.author}}
+    </p>
+</div>

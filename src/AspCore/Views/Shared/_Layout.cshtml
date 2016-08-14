@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - AspCore</title>
+    <title>AngularJs and Asp.Net Core</title>
 
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -18,13 +18,16 @@
     @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
 </head>
 <body ng-cloak>
+    <p>
+        <img src="~/images/logo.png" style="width:50%;margin-left:25%" />
+    </p>
     @RenderBody()
     <environment names="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="lib/angular/angular.min.js"></script>
-        <script src="lib/angular-resource/angular-resource.min.js"></script>
-        <script src="lib/angular-route/angular-route.min.js"></script>
-        <script src="app.js"></script>
+        <script src="/lib/jquery/dist/jquery.js"></script>
+        <script src="/lib/angular/angular.min.js"></script>
+        <script src="/lib/angular-resource/angular-resource.min.js"></script>
+        <script src="/lib/angular-route/angular-route.min.js"></script>
+        <script src="/app.js"></script>
     </environment>
     <environment names="Staging,Production">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
