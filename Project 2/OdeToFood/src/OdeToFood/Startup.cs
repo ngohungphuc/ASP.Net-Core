@@ -29,6 +29,7 @@ namespace OdeToFood
         public void ConfigureServices(IServiceCollection services)
         {
             //register di
+            services.AddMvc();
             services.AddSingleton(Configuration);
             services.AddSingleton<IGreeter, Greeter>();
         }
@@ -52,11 +53,7 @@ namespace OdeToFood
 
             app.UseFileServer();
 
-            app.Run(async (context) =>
-            {
-                var message = greeter.GetGretting();
-                await context.Response.WriteAsync(message);
-            });
+            app.UseMvcWithDefaultRoute();
         }
     }
 }
