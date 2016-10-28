@@ -17,6 +17,7 @@ namespace OdeToFood
 
         public Greeter(IConfiguration configuration)
         {
+            //get setting ingo in appsetting
             greeting = configuration["Gretting"];
         }
 

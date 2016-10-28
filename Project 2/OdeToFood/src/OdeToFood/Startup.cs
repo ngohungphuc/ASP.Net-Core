@@ -42,6 +42,13 @@ namespace OdeToFood
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler(new ExceptionHandlerOptions
+                {
+                    ExceptionHandler = context => context.Response.WriteAsync("Oops something went wrong")
+                });
+            }
 
             app.Run(async (context) =>
             {
