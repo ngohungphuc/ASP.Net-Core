@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace OdeToFood.Controllers
 {
     [Route("about")]
-    public class AboutController
+    public class AboutController : Controller
     {
         [Route("address")]
         public string Address()

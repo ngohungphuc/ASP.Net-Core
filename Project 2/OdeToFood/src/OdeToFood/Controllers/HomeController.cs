@@ -11,9 +11,9 @@ namespace OdeToFood.Controllers
     public class HomeController : Controller
     {
         // GET: /<controller>/
-        public string Index()
+        public IActionResult Index()
         {
-            return "string";
+            return View();
         }
     }
 }
