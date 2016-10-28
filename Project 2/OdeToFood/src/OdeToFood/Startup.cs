@@ -50,6 +50,8 @@ namespace OdeToFood
                 });
             }
 
+            app.UseFileServer();
+
             app.Run(async (context) =>
             {
                 var message = greeter.GetGretting();
