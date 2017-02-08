@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TodoApp.AppServices.Dtos;
+using TodoApp.AppServices.Extensions;
 using TodoApp.AppServices.Interfaces;
+using TodoApp.Domain.Entities;
+using TodoApp.Domain.Filters;
 using TodoApp.DomainServices.Interfaces;
 
 namespace TodoApp.AppServices
@@ -19,27 +22,28 @@ namespace TodoApp.AppServices
 
         public TodoDto Create(TodoDto todo)
         {
-            throw new NotImplementedException();
+            var result = service.Create(todo.MapTo<Todo>());
+            return result.MapTo<TodoDto>();
         }
 
         public IEnumerable<TodoDto> List(TodoFilterDto filter)
         {
-            throw new NotImplementedException();
+            return service.List(filter.MapTo<TodoFilter>()).EnumerableTo<TodoDto>();
         }
 
         public TodoDto GetById(int id)
         {
-            throw new NotImplementedException();
+            return service.GetById(id).MapTo<TodoDto>();
         }
 
         public bool Update(TodoDto todo)
         {
-            throw new NotImplementedException();
+            return service.Update(todo.MapTo<Todo>());
         }
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            return service.Delete(id);
         }
     }
 }

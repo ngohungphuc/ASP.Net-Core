@@ -13,7 +13,7 @@ namespace TodoApp.AppServices.Extensions
             return Mapper.Map<T>(value);
         }
 
-        public static IEnumerable<T> Enumerable<T>(this object value)
+        public static IEnumerable<T> EnumerableTo<T>(this object value)
         {
             return Mapper.Map<IEnumerable<T>>(value);
         }
