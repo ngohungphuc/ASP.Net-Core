@@ -1,8 +1,13 @@
-﻿{
+{
   "version": "1.0.0-*",
 
   "dependencies": {
-    "NETStandard.Library": "1.6.0"
+    "NETStandard.Library": "1.6.0",
+    "TodoApp.AppServices": "1.0.0-*",
+    "TodoApp.Data": "1.0.0-*",
+    "TodoApp.Domain": "1.0.0-*",
+    "TodoApp.DomainServices": "1.0.0-*",
+    "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0"
   },
 
   "frameworks": {
