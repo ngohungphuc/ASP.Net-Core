@@ -33,10 +33,13 @@ namespace TodoApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            IoC.IoCConfiguration.Configuration(services);
+            services.AddSingleton(Configuration);
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
             services.AddMvc();
+            Mappings.AutoMapperConfiguration.Initialize();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
