@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TodoApp.AppServices.Dtos;
 using TodoApp.AppServices.Interfaces;
+using TodoApp.Extensions;
+using TodoApp.Validators;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,45 +16,120 @@ namespace TodoApp.Controllers
     public class TodoController : Controller
     {
         private readonly ITodoAppService appService;
+        private readonly TodoValidator validator;
 
-        public TodoController(ITodoAppService appService)
+        public TodoController(ITodoAppService appService, Validators.TodoValidator validator)
         {
             this.appService = appService;
+            this.validator = validator;
         }
 
         // GET: api/values
         [HttpGet]
-        public IEnumerable<TodoDto> Get([FromQuery]TodoFilterDto filterDto)
+        public Results.GenericResult<IEnumerable<TodoDto>> Get([FromQuery]TodoFilterDto filter)
         {
-            return appService.List(filterDto);
+            var result = new Results.GenericResult<IEnumerable<TodoDto>>();
+
+            try
+            {
+                result.Result = appService.List(filter);
+                result.Sucess = true;
+            }
+            catch (Exception ex)
+            {
+                result.Errors = new string[] { ex.Message };
+            }
+
+            return result;
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public TodoDto Get(int id)
+        public Results.GenericResult<TodoDto> Get(int id)
         {
-            return appService.GetById(id);
+            var result = new Results.GenericResult<TodoDto>();
+
+            try
+            {
+                result.Result = appService.GetById(id);
+                result.Sucess = true;
+            }
+            catch (Exception ex)
+            {
+                result.Errors = new string[] { ex.Message };
+            }
+
+            return result;
         }
 
         // POST api/values
         [HttpPost]
-        public TodoDto Post([FromBody]TodoDto model)
+        public Results.GenericResult<TodoDto> Post([FromBody]TodoDto model)
         {
-            return appService.Create(model);
+            var result = new Results.GenericResult<TodoDto>();
+            var validatorResult = validator.Validate(model);
+            if (validatorResult.IsValid)
+            {
+                try
+                {
+                    result.Result = appService.Create(model);
+                    result.Sucess = true;
+                }
+                catch (Exception ex)
+                {
+                    result.Errors = new string[] { ex.Message };
+                }
+            }
+            else
+                result.Errors = validatorResult.GetErros();
+
+            return result;
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public bool Put(int id, [FromBody]TodoDto model)
+        public Results.GenericResult Put(int id, [FromBody]TodoDto model)
         {
-            return appService.Update(model);
+            var result = new Results.GenericResult();
+
+            var validatorResult = validator.Validate(model);
+            if (validatorResult.IsValid)
+            {
+                try
+                {
+                    result.Sucess = appService.Update(model);
+                    if (!result.Sucess)
+                        throw new Exception($"Todo {id} can't be updated");
+                }
+                catch (Exception ex)
+                {
+                    result.Errors = new string[] { ex.Message };
+                }
+            }
+            else
+                result.Errors = validatorResult.GetErros();
+
+            return result;
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
-        public bool Delete(int id)
+        public Results.GenericResult Delete(int id)
         {
-            return appService.Delete(id);
+            var result = new Results.GenericResult();
+
+            try
+            {
+                result.Sucess = appService.Delete(id);
+                if (!result.Sucess)
+                    throw new Exception($"Todo {id} can't be deleted");
+            }
+            catch (Exception ex)
+            {
+                result.Errors = new string[] { ex.Message };
+            }
+
+            return result;
         }
     }
 }
