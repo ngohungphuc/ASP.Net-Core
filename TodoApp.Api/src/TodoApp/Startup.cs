@@ -33,10 +33,26 @@ namespace TodoApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            IoC.IoCConfiguration.Configuration(services);
             services.AddSingleton(Configuration);
+            IoC.IoCConfiguration.Configuration(services);
+
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
+
+            services.AddSwaggerGen();
+            var pathToDoc = Configuration["Swagger:Path"];
+            services.ConfigureSwaggerGen(options =>
+            {
+                options.SingleApiVersion(new Swashbuckle.Swagger.Model.Info
+                {
+                    Version = "v1",
+                    Title = "Todo Api",
+                    Description = "",
+                    TermsOfService = "none"
+                });
+                options.IncludeXmlComments(pathToDoc);
+                options.DescribeAllEnumsAsStrings();
+            });
 
             services.AddMvc();
             Mappings.AutoMapperConfiguration.Initialize();
@@ -70,6 +86,9 @@ namespace TodoApp
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            app.UseSwagger();
+            app.UseSwaggerUi();
         }
     }
 }
