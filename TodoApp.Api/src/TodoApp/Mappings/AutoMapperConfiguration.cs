@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace TodoApp.Api.Mappings
+namespace TodoApp.Mappings
 {
     public static class AutoMapperConfiguration
     {
