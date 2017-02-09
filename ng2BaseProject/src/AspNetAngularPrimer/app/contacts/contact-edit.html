@@ -1,0 +1,28 @@
+﻿
+<h3>Edit</h3>
+<toaster-container></toaster-container>
+<form [formGroup]="personForm" novalidate *ngIf="contact">
+
+
+    <div class="form-group">
+        <label for="firstName">Name</label>
+        <input class="form-control" id="name" formControlName="name" [style.border-color]="'red'">
+
+        <div *ngIf="personForm.controls.name.hasError('required')" class="alert alert-danger">Name is required!</div>
+        <div *ngIf="personForm.controls.name.hasError('maxlength')" class="alert alert-danger">Name is too long!</div>
+        <div *ngIf="personForm.controls.name.hasError('dupe')" class="alert alert-danger">Name is a duplicate!</div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary" (click)="save()"
+            [disabled]="!personForm.valid">
+        Save
+        <span *ngIf="isBusy" class="glyphicon glyphicon-refresh glyphicon-spin"></span>
+    </button>
+    <button type="button" class="btn btn-warning" (click)="cancel()">Cancel</button>
+    <button type="button" class="btn btn-danger" (click)="onDelete()">Delete</button>
+    <button type="button" class="btn btn-default" (click)="back()">Back</button>
+
+    <div *ngIf="!personForm.valid" class="alert alert-danger">Correct all invalid values to enable save.</div>
+
+</form>

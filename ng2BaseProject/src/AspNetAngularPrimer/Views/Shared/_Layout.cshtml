@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <base href="~/">
+    <title>@ViewBag.Title</title>
+    <link href="~/node_modules/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/node_modules/angular2-toaster/lib/toaster.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+
+    <script>
+        (function (myAngularApp) {
+            (function (config) {
+                config.rootUrl = '@Url.Content("~/")';
+
+                console.log("Added configuration.  Config data is " + JSON.stringify(window.myAngularApp.config));
+            })(window.myAngularApp.config || (window.myAngularApp.config = {}))
+
+        })(window.myAngularApp || (window.myAngularApp = {}))
+    </script>
+
+    <script src="~/node_modules/core-js/client/shim.min.js"></script>
+
+    <script src="~/node_modules/zone.js/dist/zone.js"></script>
+    <script src="~/node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="~/node_modules/systemjs/dist/system.src.js"></script>
+    <script src="~/system.config.js"></script>
+    <script src="~/node_modules/jquery/jquery.min.js"></script>
+    <script src="~/node_modules/bootstrap/js/bootstrap.min.js"></script>
+
+    <script>
+        System.import('app')
+            .then(
+        function () { console.log('started application'); },
+        function (err) { console.log('error starting application'); console.log(err); });
+    </script>
+</body>
+</html>
