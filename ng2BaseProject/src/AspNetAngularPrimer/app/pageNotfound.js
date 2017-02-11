@@ -20,13 +20,13 @@ var PageNotFound = (function () {
             _this.missingRoute = JSON.stringify(param);
         });
     };
-    PageNotFound = __decorate([
-        core_1.Component({
-            template: "\n    Page not found.  Additional route data: {{ missingRoute }}\n    "
-        }), 
-        __metadata('design:paramtypes', [router_1.ActivatedRoute])
-    ], PageNotFound);
     return PageNotFound;
 }());
+PageNotFound = __decorate([
+    core_1.Component({
+        template: "\n    Page not found.  Additional route data: {{ missingRoute }}\n    "
+    }),
+    __metadata("design:paramtypes", [router_1.ActivatedRoute])
+], PageNotFound);
 exports.PageNotFound = PageNotFound;
-//# sourceMappingURL=pageNotfound.js.map
+//# sourceMappingURL=pageNotFound.js.map

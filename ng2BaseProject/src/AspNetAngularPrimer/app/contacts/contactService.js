@@ -92,11 +92,11 @@ var ContactService = (function () {
             _this.deletedPerson.next(personId);
         }, this.handleError);
     };
-    ContactService = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [configuration_1.Configuration, http_1.Http])
-    ], ContactService);
     return ContactService;
 }());
+ContactService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [configuration_1.Configuration, http_1.Http])
+], ContactService);
 exports.ContactService = ContactService;
 //# sourceMappingURL=contactService.js.map

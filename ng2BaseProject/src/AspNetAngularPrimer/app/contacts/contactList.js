@@ -32,19 +32,19 @@ var ContactList = (function () {
         console.log("ngAfterViewInit");
         console.log(this.viewChildren);
     };
-    __decorate([
-        core_1.ViewChildren(contactListItem_1.ContactListItem), 
-        __metadata('design:type', core_1.QueryList)
-    ], ContactList.prototype, "viewChildren", void 0);
-    ContactList = __decorate([
-        core_1.Component({
-            selector: "contacts-list",
-            /*language=html*/
-            template: "\n<h1>Contacts</h1>\n<button class=\"btn btn-primary new-button\" type=\"button\" (click)=\"newContact()\">New</button>\n<ul class=\"list-group\">\n  <contact-item *ngFor=\"let item of contacts\" [contact]=\"item\">\n  </contact-item>\n</ul>\n    "
-        }), 
-        __metadata('design:paramtypes', [contactService_1.ContactService, router_1.Router])
-    ], ContactList);
     return ContactList;
 }());
+__decorate([
+    core_1.ViewChildren(contactListItem_1.ContactListItem),
+    __metadata("design:type", core_1.QueryList)
+], ContactList.prototype, "viewChildren", void 0);
+ContactList = __decorate([
+    core_1.Component({
+        selector: "contacts-list",
+        /*language=html*/
+        template: "\n<h1>Contacts</h1>\n<button class=\"btn btn-primary new-button\" type=\"button\" (click)=\"newContact()\">New</button>\n<ul class=\"list-group\">\n  <contact-item *ngFor=\"let item of contacts\" [contact]=\"item\">\n  </contact-item>\n</ul>\n    "
+    }),
+    __metadata("design:paramtypes", [contactService_1.ContactService, router_1.Router])
+], ContactList);
 exports.ContactList = ContactList;
 //# sourceMappingURL=contactList.js.map

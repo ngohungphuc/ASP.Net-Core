@@ -13,11 +13,11 @@ var Configuration = (function () {
     function Configuration() {
         this.config = window.myAngularApp.config;
     }
-    Configuration = __decorate([
-        core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
-    ], Configuration);
     return Configuration;
 }());
+Configuration = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [])
+], Configuration);
 exports.Configuration = Configuration;
 //# sourceMappingURL=configuration.js.map

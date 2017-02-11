@@ -22,18 +22,18 @@ var MakeLarge = (function () {
         this.renderer.setElementStyle(this.element.nativeElement, "font-size", "100%");
         this.renderer.setElementStyle(this.element.nativeElement, "color", undefined);
     };
-    MakeLarge = __decorate([
-        core_1.Directive({
-            selector: "[makeLarge]",
-            host: {
-                "(mouseenter)": "makeLarger()",
-                "(mouseleave)": "makeNormal()"
-            },
-            inputs: ["makeLarge"]
-        }), 
-        __metadata('design:paramtypes', [core_1.ElementRef, core_1.Renderer])
-    ], MakeLarge);
     return MakeLarge;
 }());
+MakeLarge = __decorate([
+    core_1.Directive({
+        selector: "[makeLarge]",
+        host: {
+            "(mouseenter)": "makeLarger()",
+            "(mouseleave)": "makeNormal()"
+        },
+        inputs: ["makeLarge"]
+    }),
+    __metadata("design:paramtypes", [core_1.ElementRef, core_1.Renderer])
+], MakeLarge);
 exports.MakeLarge = MakeLarge;
 //# sourceMappingURL=makeLarge.js.map

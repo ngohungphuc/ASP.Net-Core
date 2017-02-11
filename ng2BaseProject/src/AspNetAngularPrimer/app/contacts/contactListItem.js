@@ -17,17 +17,17 @@ var ContactListItem = (function () {
     ContactListItem.prototype.clicked = function (contact) {
         this.router.navigate(["/contacts/" + contact.personId]);
     };
-    ContactListItem = __decorate([
-        core_1.Component({
-            selector: "contact-item",
-            template: "\n  <li class=\"list-group-item\" makeLarge=\"red\">\n    <button class=\"btn btn-default edit-button-with-label\" (click)=\"clicked(contact)\">Edit</button>\n    <span>{{contact.name| shorten:4}}</span>\n  </li>\n    ",
-            inputs: ["contact"],
-            styles: ["\n        .edit-button-with-label {\n            margin-right: 10px;\n            font-size: inherit;\n        }\n"],
-            changeDetection: core_1.ChangeDetectionStrategy.OnPush
-        }), 
-        __metadata('design:paramtypes', [router_1.Router])
-    ], ContactListItem);
     return ContactListItem;
 }());
+ContactListItem = __decorate([
+    core_1.Component({
+        selector: "contact-item",
+        template: "\n  <li class=\"list-group-item\" makeLarge=\"red\">\n    <button class=\"btn btn-default edit-button-with-label\" (click)=\"clicked(contact)\">Edit</button>\n    <span>{{contact.name| shorten:4}}</span>\n  </li>\n    ",
+        inputs: ["contact"],
+        styles: ["\n        .edit-button-with-label {\n            margin-right: 10px;\n            font-size: inherit;\n        }\n"],
+        changeDetection: core_1.ChangeDetectionStrategy.OnPush
+    }),
+    __metadata("design:paramtypes", [router_1.Router])
+], ContactListItem);
 exports.ContactListItem = ContactListItem;
 //# sourceMappingURL=contactListItem.js.map

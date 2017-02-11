@@ -13,7 +13,7 @@ var router_1 = require("@angular/router");
 var contactService_1 = require("./contactService");
 var forms_1 = require("@angular/forms");
 var commonValidators_1 = require("./commonValidators");
-var angular2_toaster_1 = require('angular2-toaster/angular2-toaster');
+var angular2_toaster_1 = require("angular2-toaster/angular2-toaster");
 var ContactEdit = (function () {
     function ContactEdit(router, contactService, route, formBuilder, toasterService) {
         var _this = this;
@@ -115,14 +115,18 @@ var ContactEdit = (function () {
             this.router.navigate(["contacts"]);
         }
     };
-    ContactEdit = __decorate([
-        core_1.Component({
-            templateUrl: "app/contacts/contact-edit.html",
-            styles: ["\n        .friend {\n            border-color: blue;\n        }\n        .not-friend {\n            border-color: #ccc;\n        }\n        .birth-date {\n            border-color: green;\n        }\n    "]
-        }), 
-        __metadata('design:paramtypes', [router_1.Router, contactService_1.ContactService, router_1.ActivatedRoute, forms_1.FormBuilder, angular2_toaster_1.ToasterService])
-    ], ContactEdit);
     return ContactEdit;
 }());
+ContactEdit = __decorate([
+    core_1.Component({
+        templateUrl: "app/contacts/contact-edit.html",
+        styles: ["\n        .friend {\n            border-color: blue;\n        }\n        .not-friend {\n            border-color: #ccc;\n        }\n        .birth-date {\n            border-color: green;\n        }\n    "]
+    }),
+    __metadata("design:paramtypes", [router_1.Router,
+        contactService_1.ContactService,
+        router_1.ActivatedRoute,
+        forms_1.FormBuilder,
+        angular2_toaster_1.ToasterService])
+], ContactEdit);
 exports.ContactEdit = ContactEdit;
 //# sourceMappingURL=contactEdit.js.map

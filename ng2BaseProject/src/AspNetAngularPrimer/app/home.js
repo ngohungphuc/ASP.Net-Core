@@ -17,14 +17,14 @@ var HomePage = (function () {
     HomePage.prototype.invalid = function () {
         this.router.navigate(["zzzz", { id: "zzz" }]);
     };
-    HomePage = __decorate([
-        core_1.Component({
-            selector: "home-page",
-            template: "\n    <h2>Home Page</h2>\n    <button class=\"btn btn-default\" (click)=\"invalid()\">Move to invalid page</button>\n    "
-        }), 
-        __metadata('design:paramtypes', [router_1.Router])
-    ], HomePage);
     return HomePage;
 }());
+HomePage = __decorate([
+    core_1.Component({
+        selector: "home-page",
+        template: "\n    <h2>Home Page</h2>\n    <button class=\"btn btn-default\" (click)=\"invalid()\">Move to invalid page</button>\n    "
+    }),
+    __metadata("design:paramtypes", [router_1.Router])
+], HomePage);
 exports.HomePage = HomePage;
 //# sourceMappingURL=home.js.map
