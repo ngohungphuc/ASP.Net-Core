@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using BackEnd.Models;
+using BackEnd.Data;
 using System.Runtime.InteropServices;
 using Microsoft.EntityFrameworkCore;
 using Swashbuckle.AspNetCore.Swagger;
@@ -52,6 +52,7 @@ namespace BackEnd
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            NDCOsloData.Seed(app.ApplicationServices);
             app.UseMvc();
             app.UseSwagger();
 
