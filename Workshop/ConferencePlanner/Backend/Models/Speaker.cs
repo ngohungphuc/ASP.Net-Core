@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BackEnd.Models
+namespace Backend.Models
 {
     public class Speaker
     {
@@ -20,5 +20,4 @@ namespace BackEnd.Models
         [StringLength(1000)]
         public virtual string WebSite { get; set; }
     }
-
 }
